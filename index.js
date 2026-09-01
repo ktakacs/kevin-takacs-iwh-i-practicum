@@ -40,7 +40,7 @@ app.get('/', async (req, res) => {
 
 app.get('/update-cobj', (req, res) => {
     try {
-        res.render('updates', { pageTitle: 'Update ForceUser Form'});
+        res.render('updates', { pageTitle: 'Update Custom Object Form | Integrating With HubSpot I Practicum.'});
     } catch (error) {
         res.status(500).send("Error fetching Update ForceUser Form")
     }
