@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title= title
+    style.
+      body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; }
+      label { display: block; margin-top: 12px; font-weight: bold; }
+      input[type="text"], input[type="datetime-local"], select {
+        width: 100%; padding: 6px; margin-top: 4px; box-sizing: border-box;
+      }
+      .radio-group { margin-top: 4px; }
+      .radio-group label { display: inline-block; font-weight: normal; margin-right: 16px; }
+      button { margin-top: 20px; padding: 8px 16px; }
+      a.back-link { display: inline-block; margin-top: 20px; }
+  body
+    h2 Create / Update Custom Object
+
+    form(action="/update-cobj" method="POST")
+
+      label(for="characterid") Character ID
+      input(type="text" id="characterid" name="characterid")
+
+      label(for="name") Name
+      input(type="text" id="name" name="name" required)
+
+      label Alignment
+      .radio-group
+        label
+          input(type="radio" name="alignment" value="Light" required)
+          |  Light
+        label
+          input(type="radio" name="alignment" value="Dark")
+          |  Dark
+        label
+          input(type="radio" name="alignment" value="Gray")
+          |  Gray
+
+      label(for="lightsabercolor") Lightsaber Color
+      input(type="text" id="lightsabercolor" name="lightsabercolor")
+
+      button(type="submit") Save
+
+    a.back-link(href="/") Return to the homepage

@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title= title
+    style.
+      body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; }
+      table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+      th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+      th { background-color: #f4f4f4; }
+      a.top-link { display: inline-block; margin-top: 10px; }
+  body
+    h1= title
+    a.top-link(href="/update-cobj") Add to this table
+
+    table
+      thead
+        tr
+          th Record ID
+          th Character ID
+          th Name
+          th Alignment
+          th Lightsaber Color
+      tbody
+        if data && data.length
+          each record in data
+            tr
+              td= record.id
+              td= record.properties.characterid
+              td= record.properties.name
+              td= record.properties.alignment
+              td= record.properties.lightsabercolor
+        else
+          tr
+            td(colspan="5") No records found.
